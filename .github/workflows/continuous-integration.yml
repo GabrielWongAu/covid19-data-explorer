@@ -41,3 +41,4 @@ jobs:
             python3.8 -m venv /home/github-actions/covid19-data-explorer/venv
             /home/github-actions/covid19-data-explorer/venv/bin/pip3.8 install -r /home/github-actions/covid19-data-explorer/requirements.txt
 
+
