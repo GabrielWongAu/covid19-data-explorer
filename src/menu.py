@@ -204,7 +204,9 @@ def selection_three(data_explorer):
 
 
 # function for selection 4 of menu
-def selection_four():
+def selection_four(data_explorer):
 
     # prints available countries in the COVID19 API
     print(*valid_countries_names, sep='\n')
+
+    return keep_exploring_prompt(data_explorer)
