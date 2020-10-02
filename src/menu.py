@@ -1,11 +1,9 @@
-import os
 import replit
 from screens import print_centred
 from input_validator import validate_country_input, valid_countries_names
 from input_validator import validate_data_explorer_restart
 from country import Country
 from displaygraph import DisplayGraph
-#TERMX, TERMY = os.get_terminal_size()
 
 
 # function to print out graph menu options
@@ -22,7 +20,7 @@ def keep_exploring_prompt(data_explorer):
 
     while True:
         try:
-            data_explorer_restart = input("")#.center(TERMX // 2)).upper()
+            data_explorer_restart = input("")
             if validate_data_explorer_restart(data_explorer_restart) is True:
                 replit.clear()
                 data_explorer = True
@@ -50,7 +48,7 @@ def selection_one(data_explorer):
     replit.clear()
 
     # centre the screen
-    print_centred("\n")# * ((TERMY - 11) // 2))
+    print_centred("\n")
 
     # print prompt for user to type in country name or code
     print_centred("Type in a Country Name or Country Code")
@@ -58,7 +56,7 @@ def selection_one(data_explorer):
     # error handling/try and except block for valid country,
     # to ensure API can be called properly.
     while True:
-        country_fourteen_day_average_selection = input("")#.center(TERMX // 2))
+        country_fourteen_day_average_selection = input("")
 
         if validate_country_input(
                 country_fourteen_day_average_selection) is True:
@@ -77,7 +75,7 @@ def selection_one(data_explorer):
     replit.clear()
 
     # centre the screen
-    print_centred("\n")# * ((TERMY - 11) // 2))
+    print_centred("\n")
 
     # initalise x_axis_days_data and y_axis_case_fatality_rate_data for
     # displaygraph, for animated graph
@@ -104,7 +102,7 @@ def selection_two(data_explorer):
     replit.clear()
 
     # centre the screen
-    print_centred("\n")# * ((TERMY - 11) // 2))
+    print_centred("\n")
 
     # print prompt for user to type in country name or code
     print_centred("Type in a Country Name or Country Code")
@@ -112,7 +110,7 @@ def selection_two(data_explorer):
     # error handling/try and except block for valid country, to ensure
     # API can be called properly.
     while True:
-        country_total_deaths_selection = input("")#.center(TERMX // 2))
+        country_total_deaths_selection = input("")
 
         if validate_country_input(country_total_deaths_selection) is True:
             break
@@ -130,7 +128,7 @@ def selection_two(data_explorer):
     replit.clear()
 
     # centre the screen
-    print_centred("\n")# * ((TERMY - 11) // 2))
+    print_centred("\n")
 
     # initalise x_axis_days_data and y_axis_case_fatality_rate_data
     # for displaygraph, for animated graph
@@ -156,7 +154,7 @@ def selection_three(data_explorer):
     replit.clear()
 
     # centre the screen
-    print_centred("\n")# * ((TERMY - 11) // 2))
+    print_centred("\n")
 
     # print prompt for user to type in country name or code
     print_centred("Type in a Country Name or Country Code")
@@ -164,7 +162,7 @@ def selection_three(data_explorer):
     # error handling/try and except block for valid country, to ensure API
     # can be called properly.
     while True:
-        country_case_fatality_rate_selection = input("")#.center(TERMX // 2))
+        country_case_fatality_rate_selection = input("")
 
         if validate_country_input(
                 country_case_fatality_rate_selection) is True:
@@ -183,7 +181,7 @@ def selection_three(data_explorer):
     replit.clear()
 
     # centre the screen
-    print_centred("\n")# * ((TERMY - 11) // 2))
+    print_centred("\n")
 
     # initalise x_axis_days_data and y_axis_case_fatality_rate_data for
     # displaygraph, for animated graph

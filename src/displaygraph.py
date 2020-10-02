@@ -1,8 +1,5 @@
 import plotille
-import os
-
 from country import Country
-#TERMX, TERMY = os.get_terminal_size()
 
 
 # country class to display various graphs

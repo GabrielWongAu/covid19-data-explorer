@@ -2,8 +2,6 @@ import requests
 import json
 from screens import print_centred
 import replit
-import os
-#TERMX, TERMY = os.get_terminal_size()
 
 
 # country class to instantiate country objects
@@ -33,7 +31,7 @@ class Country:
         error_handler_loop = True
         while error_handler_loop is True:
             try:
-                # using Python Request, send a get request to the 
+                # using Python Request, send a get request to the
                 # specified URL
                 response = requests.get(f"https://api.covid19api.com/total/dayone/country/{self.name}")
                 break
@@ -43,7 +41,7 @@ class Country:
                 replit.clear()
 
                 # centre screen
-                print_centred("\n")# * ((TERMY - 11) // 2))
+                print_centred("\n")
                 print_centred("")
 
                 # print error message
@@ -53,7 +51,7 @@ class Country:
                 print_centred(
                     "Requests Connection Error -> Check Internet Connection\n")
                 print_centred("Press Enter to continue")
-                input((""))#.center(TERMX // 2))
+                input("")
 
                 # clear screen
                 replit.clear()
