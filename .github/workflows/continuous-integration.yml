@@ -1,5 +1,4 @@
-name: continuous integration
-
+name: CI/CD
 on:
   push:
     branches: [ master ]
@@ -20,4 +19,24 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run Tests
         run: |
+          cd src
           python -m unittest discover tests/
+  deployment:
+    needs: test_suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fresh clone & repo install
+        uses: appleboy/ssh-action@master
+        with:
+          #IP address of EC2 instance
+          host: 52.70.104.15
+          #User you created on the EC2 instance
+          username: github-actions
+          #Name of the secrets variable where you put your secret key
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf squiz
+            git clone https://github.com/GabrielWongAu/covid19-data-explorer.git
+            python3.8 -m venv /home/github-actions/covid19-data-explorer/venv
+            /home/github-actions/covid19-data-explorer/venv/bin/pip3.8 install -r /home/github-actions/covid19-data-explorer/requirements.txt
