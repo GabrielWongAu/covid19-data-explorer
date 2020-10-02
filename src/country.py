@@ -3,7 +3,7 @@ import json
 from screens import print_centred
 import replit
 import os
-TERMX, TERMY = os.get_terminal_size()
+#TERMX, TERMY = os.get_terminal_size()
 
 
 # country class to instantiate country objects
@@ -43,7 +43,7 @@ class Country:
                 replit.clear()
 
                 # centre screen
-                print_centred("\n" * ((TERMY - 11) // 2))
+                print_centred("\n")# * ((TERMY - 11) // 2))
                 print_centred("")
 
                 # print error message
@@ -53,7 +53,7 @@ class Country:
                 print_centred(
                     "Requests Connection Error -> Check Internet Connection\n")
                 print_centred("Press Enter to continue")
-                input(("").center(TERMX // 2))
+                input((""))#.center(TERMX // 2))
 
                 # clear screen
                 replit.clear()

@@ -7,7 +7,7 @@ from menu import (
 
 from input_validator import validate_menu_selection
 
-TERMX, TERMY = os.get_terminal_size()
+#TERMX, TERMY = os.get_terminal_size()
 
 
 # graph_menu_loop function to display graphs menu
@@ -18,7 +18,7 @@ def graph_menu_loop():
     while data_explorer is True:
 
         # centre screen
-        print_centred("\n" * ((TERMY - 11) // 2))
+        print_centred("\n")# * ((TERMY - 11) // 2))
 
         # function to print out menu options
         display_options()
@@ -26,7 +26,7 @@ def graph_menu_loop():
         # error handling/try and except block for menu selection
         while True:
             try:
-                selection = input("".center(TERMX // 2))
+                selection = input("")#.center(TERMX // 2))
 
                 # method to validate menu selection
                 if validate_menu_selection(selection) is False:

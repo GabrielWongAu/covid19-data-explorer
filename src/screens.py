@@ -4,22 +4,22 @@ import os
 #function to centre text
 def print_centred(line):
 
-    TERMX, TERMY = os.get_terminal_size()
-    print(*centred(line))
+    #TERMX, TERMY = os.get_terminal_size()
+    print(line)  #print(*centred(line))
 
 #helper function of print_centered to centre text
-def centred(*lines):
+# def centred(*lines):
 
-    TERMX, TERMY = os.get_terminal_size()
-    for line in lines:
-        yield line.center(TERMX)                                                                                             
+#     #TERMX, TERMY = os.get_terminal_size()
+#     for line in lines:
+#         yield line.center(TERMX)                                                                                             
 
 
 #prints out introduction screen information
 def intro_screen():
 
-    TERMX, TERMY = os.get_terminal_size()
-    print_centred("\n" * ((TERMY - 6 - 5) // 2)) 
+   #TERMX, TERMY = os.get_terminal_size()
+    print_centred("\n")# * ((TERMY - 6 - 5) // 2)) 
     print_centred(" ██████  ██████  ██    ██ ██ ██████   ██  █████      ██████   █████  ████████  █████      ███████ ██   ██ ██████  ██       ██████  ██████  ███████ ██████  ")
     print_centred("██      ██    ██ ██    ██ ██ ██   ██ ███ ██   ██     ██   ██ ██   ██    ██    ██   ██     ██       ██ ██  ██   ██ ██      ██    ██ ██   ██ ██      ██   ██ ")
     print_centred("██      ██    ██ ██    ██ ██ ██   ██  ██  ██████     ██   ██ ███████    ██    ███████     █████     ███   ██████  ██      ██    ██ ██████  █████   ██████  ")
@@ -36,13 +36,13 @@ def intro_screen():
     print_centred("Public Saftey Announcement: Saves lives by wearing a mask. Limit face-to face contact and stay at home.\n")
     print_centred("")
     print_centred("Press Enter to continue")
-    new = input(("").center(TERMX // 2))
+    new = input((""))#.center(TERMX // 2))
     os.system('clear')
 
 #prints out ending screen message
 def ending_screen():
-    TERMX, TERMY = os.get_terminal_size()
-    print_centred("\n" * ((TERMY - 6 - 5) // 2)) 
+    #TERMX, TERMY = os.get_terminal_size()
+    print_centred("\n")# * ((TERMY - 6 - 5) // 2)) 
     print_centred("Thank you for using COVID19 Data Explorer\n")
     print_centred("Made with <3")
-    print_centred("\n" * ((TERMY - 6 - 5) // 2)) 
+    print_centred("\n")# * ((TERMY - 6 - 5) // 2)) 
