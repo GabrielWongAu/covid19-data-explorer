@@ -3,7 +3,7 @@ import json
 from screens import print_centred
 import replit
 import os
-TERMX, TERMY = os.get_terminal_size(0)
+TERMX, TERMY = os.get_terminal_size()
 
 
 # country class to instantiate country objects
