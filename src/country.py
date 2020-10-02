@@ -33,10 +33,9 @@ class Country:
         error_handler_loop = True
         while error_handler_loop is True:
             try:
-                # using Python Request, send a get request to the specified URL
-                response = requests.get(
-                    "https://api.covid19api.com/total/"
-                    f"dayone/country/{self.name}")
+                # using Python Request, send a get request to the 
+                # specified URL
+                response = requests.get(f"https://api.covid19api.com/total/dayone/country/{self.name}")
                 break
             except requests.ConnectionError:
 

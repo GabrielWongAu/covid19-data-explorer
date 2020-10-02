@@ -1,8 +1,8 @@
 import unittest
 import json
 import requests
-from unittest.mock import patch
-import pytest
+#from unittest.mock import patch
+#import pytest
 from country import Country
 
 
@@ -37,22 +37,22 @@ class TestCase(unittest.TestCase):
 
         country.get_daily_cases()
 
-      self.assertEqual(country.daily_cases, [9, 13, 3, 5])
+        self.assertEqual(country.daily_cases, [9, 13, 3, 5])
 
     def test_get_daily_deaths(self):
         country = Country("TEST")
         with open("./tests/data/australiadata.json", "r") as filehandler:
-        country.data = json.loads(filehandler.readline())
+            country.data = json.loads(filehandler.readline())
 
         country.get_daily_deaths()
 
-      self.assertEqual(country.daily_deaths, [0, 1, 0, 0])
+        self.assertEqual(country.daily_deaths, [0, 1, 0, 0])
 
 
     def test_get_cummulative_deaths(self):
         country = Country("TEST")
         with open("./tests/data/australiadata.json", "r") as filehandler:
-        country.data = json.loads(filehandler.readline())
+            country.data = json.loads(filehandler.readline())
 
         country.get_cumulative_deaths()
 
@@ -61,16 +61,16 @@ class TestCase(unittest.TestCase):
     def test_get_cummulative_cases(self):
         country = Country("TEST")
         with open("./tests/data/australiadata.json", "r") as filehandler:
-        country.data = json.loads(filehandler.readline())
+            country.data = json.loads(filehandler.readline())
 
-      country.get_cumulative_cases()
+        country.get_cumulative_cases()
 
         self.assertEqual(country.cumulative_cases, [30, 39, 52, 55, 60])
 
     def test_get_fourteen_day_average(self):
         country = Country("TEST")
         with open("./tests/data/fourteen_day_average_australia_data.json", "r") as filehandler:
-        country.data = json.loads(filehandler.readline())
+            country.data = json.loads(filehandler.readline())
 
         country.get_daily_cases()
         country.get_fourteen_day_average_cases()
@@ -81,7 +81,7 @@ class TestCase(unittest.TestCase):
     def test_get_case_fatality_rate(self):
         country = Country("TEST")
         with open("./tests/data/australiadata.json", "r") as filehandler:
-        country.data = json.loads(filehandler.readline())
+            country.data = json.loads(filehandler.readline())
 
         country.get_cumulative_cases()
         country.get_cumulative_deaths()
