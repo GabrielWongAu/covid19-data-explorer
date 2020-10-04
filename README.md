@@ -1,15 +1,34 @@
 # COVID19 Data Explorer
 
 A Python data visualisation tool to explore the latest COVID19 data. 
-Developed by Gabriel Wong for his Coder Academy Term 2 Final Assignment.
+
+Developed by Gabriel Wong
 
 ### Application Features
 
-- Explore a country's 14 day case average, cumulative deaths and case fatality rate, via an animated graph.
-- Utilises an up to date covid19api.com API, created by Kyle Redelinghuys. This API takes its data from Johns Hopkins CSSE. 
-- Uses OOP to store the API data
-- Implements Automated testing using Python's built-in Unittest module
-- Developed a CI/CD pipeline
+- Explore different countries' 14 day case average, cumulative deaths and case fatality rate, via an animated graph.
+- Utilises an up-to-date covid19api.com API, created by Kyle Redelinghuys. This API sources its data from Johns Hopkins CSSE. 
+- Implements Object Oriented Programming to create the Country and DisplayGraph classes.
+- Implements Automated Testing using Python's built-in Unittest module for the CI/CD pipeline.
+
+<div align="center">Introduction Screen</div>
+
+![Introduction Screen](./img/welcome-screen.png)
+
+<div align="center">14 Day Case Average </div>
+
+![14 Day Case Average](./img/14-day-case-average.gif)
+
+
+<div align="center">Cumulative Deaths</div>
+
+![Cumulative Deaths](./img/cumulative-deaths.gif)
+
+<div align="center">Case Fatality Rate</div>
+
+![Case Fatality Rate](./img/case-fatality-rate.gif)
+
+
 
 ## Instructions and Help
 
@@ -87,6 +106,9 @@ Run the program by running the following command
 python src/main.py
 ```
 
+### First Run
+
+Your terminal screen will need to be certain size for it to run(170w x 50h) derived as lines x columns. Or you can just open it in a full screen window and resize to the appropriate height.
 
 ### Application Information
 
@@ -107,33 +129,43 @@ I built this application to allow people to keep up to date with the latest COVI
 
 At the menu selection screen, users will enter in a number between 1 to 4 to choose which graph they want to view. Option 1-3 are graphs, while option 4 displays the available countries.  The user will only proceed to the menu screen if they input a valid number (1-4). I have done this by creating a validate menu selection function which checks for a valid number input. If it’s a valid number input (1-4), it will return the number. Otherwise it will return False.
 
-Once they have inputted a valid number, they will proceed to type in a Country or Country code. The user will only proceed to the display graph when they have entered in a valid Country name or Code. I have done this by creating a validate menu selection function which sanitises the data and checks whether the sanitised input matches a list of available countries/country codes.
+Once they have inputted a valid number, they will proceed to type in a Country or Country code. The user will only proceed to the display graph when they have entered in a valid Country name or Code. I have done this by creating a validate menu selection function which validates the data and checks whether the input matches a list of available countries/country codes.
 
 Once the country input has been validated, it will attempt to complete a Python Requests get request to https://api.covid19api.com/. If there is a HTTP ConnectionError, the error will be handled gracefully. It will explain to the user that it is “Unable to connect to https://api.covid19api.com/total/dayone/country/{valid_country_input}”. It will then say there is a Requests Connection Error and advise the user to check their internet connection.
 
 
 ### How the solution will be structured in terms of classes, functions and other entities
-My application is orchestrated by a graph menu while loop. It allows the user to select which graph they want to explore, or which countries are available to display. Once a graph is chosen and animated, the user can exit the program gracefully if they choose to do so.  
+My application is orchestrated by a graph menu while loop. It allows the user to select which graph they want to explore or which countries are available to display. Once a graph is chosen and animated, the user can exit the program gracefully if they choose to do so.  
 
-My program utilises two classes (country and display graph). The country class is used to parse the data from the API and get the data ready for the plotille graph. The displaygraph class is used to create the plotille graph and animate the data.  
+My program utilises two classes (country and display graph). The Country class is used to parse the requested country's data from the API and get the data ready for the plotille graph. The DisplayGraph class is used to create the plotille graph and animate the plotille graph.  
 
-I have 4 separate menu selection functions, which are called depending on which menu is selected.
+I have four separate menu selection functions, which are called depending on which menu is selected.
 
-I use validator functions to validate input (menu selection, country selection and keep exploring prompt).
+I have validator functions to validate user input (menu selection, country selection and keep exploring prompt).
 
 
 ### Python Dependencies required
 
-*	Requests – an elegant and simple HTTP library for Python, built for human beings. 
-    * I have used the Python Requests module to make API get requests.
-*	Json – a built-in Python package that works with JSON data.
+The following is a list of python dependencies my application uses:
+
+**Python Standard Modules**
+*	**Json**: a built-in Python package that works with JSON data.
     *	I have used the json module to decode the JSON data from the API requests.
-*	Os – Python’s built in miscellaneous operating system interfaces 
-    *	Sys and os have been used to print to the centre of the screen.
-*	Plotille – plot in the terminal using braille dots.
+* **Unittest**: the batteries-included test module in the Python standard library.
+    * I have used the unittest module for automated  testing.
+
+**Third-party Modules**:
+*	**Requests**: an elegant and simple HTTP library for Python, built for human beings. 
+    * I have used the Python Requests module to make API get requests.
+
+*	**Plotille**: plot in the terminal using braille dots.
     *	Used to plot the COVID19 data in a terminal graph.
 
+*	**Replit**: Replit-py is a python library designed to be run from a repl on repl.it.
+    *	Used to clear the screen for graph animations.
 
+### CI/CD Pipeline
+I utilised Github actions to create a CI/CD pipeline. The workflow will run all of my automated tests, and if they pass, it will deploy my application to an Amazon EC2 instance.
 
 ### Control Flow Flowchart
 
